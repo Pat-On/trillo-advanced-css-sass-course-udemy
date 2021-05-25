@@ -37,6 +37,13 @@ Grey dark 3: #999
   --line: 1px solid var(--color-grey-light-2);
 }
 
+//SASS VARIABLE
+$bp-largest: 75em; // 1200px
+$bp-large: 68.65em; //1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; //500px
+
 // Global reset
 * {
   margin: 0;
@@ -52,6 +59,12 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1 rem = 10px :)
+
+  @media only screen and (max-width: $bp-large) {
+    // here we are going to change the the font size and because the base of the project is
+    // font size (rem) it would change "everything"
+    font-size: 50%;
+  }
 }
 
 body {
