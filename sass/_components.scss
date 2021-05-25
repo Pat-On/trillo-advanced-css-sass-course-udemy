@@ -320,3 +320,83 @@
     box-shadow: none;
   }
 }
+
+///////////////////////////////////////////////////
+// PARAGRAPH
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+//////////////////////////////////////////////////
+// LIST
+
+.list {
+  margin: 3rem 0;
+  list-style: none;
+  padding: 3rem;
+  border-top: var(--line);
+
+  border-bottom: var(--line);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    // setting up items side by side in two rows
+    flex: 0 0 50%;
+
+    margin-bottom: 0.7rem;
+  }
+  //pseudo element which is going to contain the svg icon
+  &__item::before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+
+    // Older browser - in this solution we can not change color (?)
+    // background-image: url(../img/chevron-thin-right.svg);
+    // background-size: cover;
+
+    //Newer browser - masks - best approach
+    // mask define are where we can see through the object
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+
+    // from my browser only firefox support it lol
+    // mask-image: url(../img/chevron-thin-right.svg);
+    // mask-size: cover;
+  }
+}
+
+////////////////////////////////////////////////////
+// RECOMMEND
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  display: flex;
+  align-items: center;
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__friends {
+  }
+
+  &__photo {
+    // resetting default values to box-sizing
+    box-sizing: content-box;
+
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    &:not(:last-child) {
+      margin-right: -1.15rem;
+    }
+  }
+}
